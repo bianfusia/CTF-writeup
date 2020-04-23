@@ -83,3 +83,7 @@ root@kali:/usr/share/wordlists# gunzip rockyou.txt.gz
 ```bash
 hydra -l root -P /usr/share/wordlists/rockyou.txt ssh://10.10.211.151
 ```
+
+## John and Hashcat
+refer to this writeup for the full detailed write up.
+-[Anonforce Writeup](https://www.embeddedhacker.com/2019/09/hacking-walkthrough-boot2root-ctf-anonforce/)
