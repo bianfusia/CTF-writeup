@@ -42,4 +42,27 @@ Nmap done: 1 IP address (1 host up) scanned in 11.22 seconds
 sudo apt install gobuster
 
 #run gobuster with dirbuster wordlists
-gobuster dir -u http://10.10.131.164 -w /usr/share/wordlists/dirbuster//usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+gobuster dir -u http://10.10.131.164 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+
+5. You will see that /content is available.
+```bash
+gobuster dir -u http://10.10.131.164 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+```
+
+6. Going to http://10.10.131.164/content brings user to a sweetrice page but do not have much details as well. So we will run gobuster again on 10.10.131.164/content
+```bash
+gobuster dir -u http://10.10.131.164/content -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+```
+
+7. You will realise that /content gives more output
+```bash
+/images (Status: 301)
+/js (Status: 301)
+/inc (Status: 301)
+/as (Status: 301)
+/_themes (Status: 301)
+/attachment (Status: 301)
+```
+
+8. Running through the files you will realised there is this file over at /content/inc/lastest.txt shows ```1.5.1```. This may be the SweetRice version number.
+
