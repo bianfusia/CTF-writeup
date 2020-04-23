@@ -203,5 +203,24 @@ export TERM=xterm
 
 - press ```crtl+l``` to get a clean and stable shell.
 
+## Finding users and flags
 
+18. We will now see what users are there in this shell.
+```bash
+cat /etc/passwd | grep /bin/bash
+```
+
+You will see a user called ```itguy```.
+```bash
+www-data@THM-Chal:/$ cat /etc/passwd | grep /bin/bash
+root:x:0:0:root:/root:/bin/bash
+itguy:x:1000:1000:THM-Chal,,,:/home/itguy:/bin/bash
+guest-3myc2b:x:998:998:Guest:/tmp/guest-3myc2b:/bin/bash
+```
+
+we can move to the itguy directory and capture our first flag.
+```bash
+cd /home/itguy
+cat user.txt
+```
 
