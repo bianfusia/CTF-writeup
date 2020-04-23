@@ -3,7 +3,7 @@
 ## IP Address
 10.10.131.164
 
-## Reconnaissance
+## Write Up
 1. do an Nmap scan.
 ```bash
 #make a directory to store where you are going to store you nmap results
@@ -32,3 +32,14 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 11.22 seconds
 ```
+
+3. Port 80/http is open. Navigating to it will lead you to a apache page.
+<insert ss1>
+
+4. Explore other potential directories with gobuster.
+```bash
+#install gobuster if you dont have it already
+sudo apt install gobuster
+
+#run gobuster with dirbuster wordlists
+gobuster dir -u http://10.10.131.164 -w /usr/share/wordlists/dirbuster//usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
