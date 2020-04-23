@@ -86,4 +86,9 @@ hydra -l root -P /usr/share/wordlists/rockyou.txt ssh://10.10.211.151
 
 ## John and Hashcat
 refer to this writeup for the full detailed write up.
--[Anonforce Writeup](https://www.embeddedhacker.com/2019/09/hacking-walkthrough-boot2root-ctf-anonforce/)
+[Anonforce Writeup](https://www.embeddedhacker.com/2019/09/hacking-walkthrough-boot2root-ctf-anonforce/)
+
+- write hashcat like this instead:
+```bash
+hashcat -D 1 -m 1800 hash.txt /usr/share/wordlists/rockyou.txt --force
+```
