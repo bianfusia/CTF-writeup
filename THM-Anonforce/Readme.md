@@ -1,4 +1,4 @@
-# THM - LazyAdmin
+# THM - Anonforce
 
 ## IP Address
 10.10.211.151
