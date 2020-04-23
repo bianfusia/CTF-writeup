@@ -66,3 +66,25 @@ gobuster dir -u http://10.10.131.164/content -w /usr/share/wordlists/dirbuster/d
 
 8. Running through the files you will realised there is this file over at /content/inc/lastest.txt shows ```1.5.1```. This may be the SweetRice version number.
 
+9. Search for SweetRice Exploits.
+```bash
+searchsploit sweetrice
+```
+
+It will return a few exploits available under version ```1.5.1```. Main exploits are Arbitrary File Upload and PHP code execution.
+```bash
+---------------------------------- ----------------------------------------
+ Exploit Title                    |  Path
+                                  | (/usr/share/exploitdb/)
+---------------------------------- ----------------------------------------
+SweetRice 0.5.3 - Remote File Inc | exploits/php/webapps/10246.txt
+SweetRice 0.6.7 - Multiple Vulner | exploits/php/webapps/15413.txt
+SweetRice 1.5.1 - Arbitrary File  | exploits/php/webapps/40698.py
+SweetRice 1.5.1 - Arbitrary File  | exploits/php/webapps/40716.py
+SweetRice 1.5.1 - Backup Disclosu | exploits/php/webapps/40718.txt
+SweetRice 1.5.1 - Cross-Site Requ | exploits/php/webapps/40692.html
+SweetRice 1.5.1 - Cross-Site Requ | exploits/php/webapps/40700.html
+SweetRice < 0.6.4 - 'FCKeditor' A | exploits/php/webapps/14184.txt
+---------------------------------- ----------------------------------------
+```
+
