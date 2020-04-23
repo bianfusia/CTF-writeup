@@ -1,0 +1,69 @@
+# THM - LazyAdmin
+
+## IP Address
+10.10.211.151
+
+## Write Up
+1. do an Nmap scan.
+```bash
+#make a directory to store where you are going to store you nmap results
+mkdir nmap
+#scan for open ports and direct results to nmap/initial
+nmap -p- -sV -sC -oN nmap/initial 10.10.211.151
+```
+2. The name results will result as shown:
+```
+root@kali:~# nmap -p- -sV -sC -oN nmap/initial 10.10.211.151
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-04-23 10:33 UTC
+Nmap scan report for ip-10-10-211-151.eu-west-1.compute.internal (10.10.211.151)
+Host is up (0.0011s latency).
+Not shown: 65533 closed ports
+PORT   STATE SERVICE VERSION
+21/tcp open  ftp     vsftpd 3.0.3
+| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+| drwxr-xr-x    2 0        0            4096 Aug 11  2019 bin
+| drwxr-xr-x    3 0        0            4096 Aug 11  2019 boot
+| drwxr-xr-x   17 0        0            3700 Apr 23 03:32 dev
+| drwxr-xr-x   85 0        0            4096 Aug 13  2019 etc
+| drwxr-xr-x    3 0        0            4096 Aug 11  2019 home
+| lrwxrwxrwx    1 0        0              33 Aug 11  2019 initrd.img -> boot/initrd.img-4.4.0-157-generic
+| lrwxrwxrwx    1 0        0              33 Aug 11  2019 initrd.img.old -> boot/initrd.img-4.4.0-142-generic
+| drwxr-xr-x   19 0        0            4096 Aug 11  2019 lib
+| drwxr-xr-x    2 0        0            4096 Aug 11  2019 lib64
+| drwx------    2 0        0           16384 Aug 11  2019 lost+found
+| drwxr-xr-x    4 0        0            4096 Aug 11  2019 media
+| drwxr-xr-x    2 0        0            4096 Feb 26  2019 mnt
+| drwxrwxrwx    2 1000     1000         4096 Aug 11  2019 notread [NSE: writeable]
+| drwxr-xr-x    2 0        0            4096 Aug 11  2019 opt
+| dr-xr-xr-x  104 0        0               0 Apr 23 03:32 proc
+| drwx------    3 0        0            4096 Aug 11  2019 root
+| drwxr-xr-x   18 0        0             540 Apr 23 03:32 run
+| drwxr-xr-x    2 0        0           12288 Aug 11  2019 sbin
+| drwxr-xr-x    3 0        0            4096 Aug 11  2019 srv
+| dr-xr-xr-x   13 0        0               0 Apr 23 03:32 sys
+|_Only 20 shown. Use --script-args ftp-anon.maxlist=-1 to see all.
+| ftp-syst: 
+|   STAT: 
+| FTP server status:
+|      Connected to ::ffff:10.10.56.64
+|      Logged in as ftp
+|      TYPE: ASCII
+|      No session bandwidth limit
+|      Session timeout in seconds is 300
+|      Control connection is plain text
+|      Data connections will be plain text
+|      At session startup, client count was 3
+|      vsFTPd 3.0.3 - secure, fast, stable
+|_End of status
+22/tcp open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.8 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 8a:f9:48:3e:11:a1:aa:fc:b7:86:71:d0:2a:f6:24:e7 (RSA)
+|   256 73:5d:de:9a:88:6e:64:7a:e1:87:ec:65:ae:11:93:e3 (ECDSA)
+|_  256 56:f9:9f:24:f1:52:fc:16:b7:7b:a3:e2:4f:17:b4:ea (ED25519)
+MAC Address: 02:36:EE:53:40:A6 (Unknown)
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 5.10 seconds
+
+```
