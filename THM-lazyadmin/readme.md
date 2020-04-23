@@ -103,6 +103,8 @@ You will notice the PHP code along with the hashed password and username:
 
 12. go to ```/content/as``` and login with the username and password to verify. Once logged in, start the website.
 
+## Creating Reverse Shell
+
 13. We are now going to use the 2 exploits found earlier. We can either upload the code in the dashboard > ads or we can use a python script to do the uploading.
 - [SweetRice 1.5.1 - Arbitrary File Upload Script](https://www.exploit-db.com/exploits/40716)
 
