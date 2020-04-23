@@ -88,3 +88,12 @@ SweetRice < 0.6.4 - 'FCKeditor' A | exploits/php/webapps/14184.txt
 ---------------------------------- ----------------------------------------
 ```
 
+10. Now we need to find a username and password to run the 2 exploits. Looking further into the files at ```/content/inc``` you will come across an interesting SQL document under ```http://10.10.131.164/content/inc/mysql_backup/```. Download the SQL file and read it through:
+```bash
+cat Downloads/mysql_bakup_20191129023059-1.5.1.sql 
+```
+
+You will notice the PHP code along with the hashed password and username:
+```
+  14 => 'INSERT INTO `%--%_options` VALUES(\'1\',\'global_setting\',\'a:17:{s:4:\\"name\\";s:25:\\"Lazy Admin&#039;s Website\\";s:6:\\"author\\";s:10:\\"Lazy Admin\\";s:5:\\"title\\";s:0:\\"\\";s:8:\\"keywords\\";s:8:\\"Keywords\\";s:11:\\"description\\";s:11:\\"Description\\";s:5:\\"admin\\";s:7:\\"manager\\";s:6:\\"passwd\\";s:32:\\"42f749ade7f9e195bf475f37a44cafcb\\";s:5:\\"close\\";i:1;s:9:\\"close_tip\\";s:454:\\"
+```
