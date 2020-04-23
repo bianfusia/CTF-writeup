@@ -72,10 +72,6 @@ Nmap done: 1 IP address (1 host up) scanned in 5.10 seconds
 ## Brute-forcing
 4.  Unzip your rockyou.txt if it is still zipped in kali.
 ```bash
-root@kali:~# /usr/share/wordlists/
-bash: /usr/share/wordlists/: Is a directory
-root@kali:~# cd/usr/share/wordlists/
-bash: cd/usr/share/wordlists/: No such file or directory
 root@kali:~# cd /usr/share/wordlists/
 root@kali:/usr/share/wordlists# ls
 dirb       fasttrack.txt  metasploit  rockyou.txt.gz
