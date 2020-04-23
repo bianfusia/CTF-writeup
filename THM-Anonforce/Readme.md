@@ -11,7 +11,7 @@ mkdir nmap
 #scan for open ports and direct results to nmap/initial
 nmap -p- -sV -sC -oN nmap/initial 10.10.211.151
 ```
-2. The name results will result as shown:
+2. The name results will result as shown. 2 ports will be open ```21``` and ```22```:
 ```
 root@kali:~# nmap -p- -sV -sC -oN nmap/initial 10.10.211.151
 Starting Nmap 7.80 ( https://nmap.org ) at 2020-04-23 10:33 UTC
@@ -67,3 +67,5 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 5.10 seconds
 
 ```
+3. You will get the first flag in ```/home/melodias/user.txt```
+
