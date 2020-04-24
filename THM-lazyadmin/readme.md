@@ -33,8 +33,7 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 11.22 seconds
 ```
 
-3. Port 80/http is open. Navigating to it will lead you to a apache page.
-<insert ss1>
+3. Port ```80/http``` is open. Navigating to it will lead you to a apache page.
 
 4. Explore other potential directories with gobuster.
 ```bash
@@ -43,6 +42,7 @@ sudo apt install gobuster
 
 #run gobuster with dirbuster wordlists
 gobuster dir -u http://10.10.131.164 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+```
 
 5. You will see that /content is available.
 ```bash
