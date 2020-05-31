@@ -81,3 +81,26 @@ hashcat -D 1 -m 1800 hash.txt /usr/share/wordlists/rockyou.txt --force
 ```bash
 john --wordlist=/usr/share/wordlists/rockyou.txt hash
 ```
+
+## Stablising Shell
+- type the following:
+```bash
+python -c "import pty; pty.spawn('/bin/bash')"
+```
+
+- press ```ctrl+z``` to bring shell to foreground
+
+- type:
+```bash
+stty raw -echo
+fg
+```
+
+- press ```Enter``` a few times to get back the shell
+
+- type:
+```bash
+export TERM=xterm
+```
+
+- press ```crtl+l``` to get a clean and stable shell.
