@@ -45,9 +45,30 @@ smbclient //$IP/[SHARE]
 ```
 
 With user and port add:
-
+```
 -U [name] : to specify the user
 
 -p [port] : to specify the port
+```
 
-##
+## Telnet
+Accessing Telnet:
+```bash
+telnet $IP [port]
+```
+
+## Hydra Brute-Forcing
+With known user and unknown password:
+```bash
+hydra -l <username> -P /usr/share/wordlists/rockyou.txt ssh://$IP
+```
+
+with unknown user and unknown password:
+```bash
+hydra -l /path/to/user/list -P /usr/share/wordlists/rockyou.txt ssh://$IP
+```
+
+## Sample Hashcat Brute-Forcing
+```bash
+hashcat -D 1 -m 1800 hash.txt /usr/share/wordlists/rockyou.txt --force
+```
