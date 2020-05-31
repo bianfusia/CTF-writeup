@@ -16,6 +16,11 @@ Nmap scanning samba ports:
 nmap -p 445 --script=smb-enum-shares.nse,smb-enum-users.nse $IP
 ```
 
+##Nikto
+```bash
+nikto -h $IP
+```
+
 ##  Gobuster
 
 Normal medium wordlist directory scan:
