@@ -72,3 +72,7 @@ hydra -l /path/to/user/list -P /usr/share/wordlists/rockyou.txt ssh://$IP
 ```bash
 hashcat -D 1 -m 1800 hash.txt /usr/share/wordlists/rockyou.txt --force
 ```
+## Sample John The Ripper Brute-Forcing
+```bash
+john --wordlist=/usr/share/wordlists/rockyou.txt hash
+```
