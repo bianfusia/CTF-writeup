@@ -73,6 +73,11 @@ with unknown user and unknown password:
 hydra -l /path/to/user/list -P /usr/share/wordlists/rockyou.txt ssh://$IP
 ```
 
+force http-get
+```bash
+hydra -l admin -P /usr/share/wordlists/rockyou.txt -s 3000 -f $IP http-get /<address>
+```
+
 ## Sample Hashcat Brute-Forcing
 ```bash
 hashcat -D 1 -m 1800 hash.txt /usr/share/wordlists/rockyou.txt --force
