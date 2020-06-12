@@ -87,6 +87,16 @@ hashcat -D 1 -m 1800 hash.txt /usr/share/wordlists/rockyou.txt --force
 john --wordlist=/usr/share/wordlists/rockyou.txt hash
 ```
 
+## SQLmap
+```bash
+sqlmap -u $IP
+```
+
+if you know the database type
+```bash
+sqlmap -u $IP -dbms==sqlite
+```
+
 ## Stablising Shell
 - type the following:
 ```bash
