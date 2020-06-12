@@ -94,7 +94,7 @@ sqlmap -u $IP
 
 if you know the database type
 ```bash
-sqlmap -u $IP -dbms==sqlite
+sqlmap -u $IP --dbms==sqlite --dump
 ```
 
 ## Stablising Shell
