@@ -103,6 +103,12 @@ sqlmap -u $IP --dbms==sqlite --dump
 python -c "import pty; pty.spawn('/bin/bash')"
 ```
 
+OR
+
+```
+python3 -c 'import pty;pty.spawn("/bin/bash")'
+```
+
 - press ```ctrl+z``` to bring shell to foreground
 
 - type:
