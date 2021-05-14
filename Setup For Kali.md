@@ -6,6 +6,7 @@ If you would like to use root instead of the none superuser account kali, here a
 Issue command “sudo su”
 
 password: kali
+```
 
 Issue command 
 ```passwd root```
