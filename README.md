@@ -18,8 +18,8 @@ nmap -p 445 --script=smb-enum-shares.nse,smb-enum-users.nse $IP
 
 Nmap scanning for vulnerability script:
 ```bash
-cd 
 nmap $IP --script=/usr/share/nmap/scripts/vulners.nse -sV
+```
 
 ## Nikto
 ```bash
