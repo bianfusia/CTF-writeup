@@ -130,3 +130,9 @@ export TERM=xterm
 ```
 
 - press ```crtl+l``` to get a clean and stable shell.
+
+## Finding Exploit For Privilege Escalation
+
+1. You can type ```sudo -l``` to see if any sudo permission is given.
+2. you can use ```find / -perm -u=s -type f 2>/dev/null``` to find exploit files to run without ```sudo```
+SUID bits can be dangerous, some binaries such as passwd need to be run with elevated privileges (as its resetting your password on the system), however other custom files could that have the SUID bit can lead to all sorts of issues.
