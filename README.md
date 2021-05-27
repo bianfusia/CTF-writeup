@@ -1,4 +1,4 @@
-# Common Red Team References
+# Common CTF References
 
 note that in this script below, I made an assumption that you have assigned ```IP``` to the target's IP address:
 ```bash
