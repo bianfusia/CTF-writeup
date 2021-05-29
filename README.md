@@ -110,6 +110,14 @@ if you know the database type
 sqlmap -u $IP --dbms==sqlite --dump
 ```
 
+## Reverse Shell
+
+[Pentestmonkey's php reverse shell] (https://github.com/pentestmonkey/php-reverse-shell)
+-Remember to change the IP address and port in the php script
+
+[Renaming reverse shell ext](https://d00mfist.gitbooks.io/ctf/content/bypass_image_upload.html)
+
+
 ## Netcat
 ```
 nc -lvpn <port>
