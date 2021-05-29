@@ -155,5 +155,7 @@ export TERM=xterm
 ## Finding Exploit For Privilege Escalation
 
 1. You can type ```sudo -l``` to see if any sudo permission is given.
-2. you can use ```find / -perm -u=s -type f 2>/dev/null``` to find exploit files to run without ```sudo```.
-SUID bits can be dangerous, some binaries such as passwd need to be run with elevated privileges (as its resetting your password on the system), however other custom files could that have the SUID bit can lead to all sorts of issues.
+
+2. you can use ```find / -perm -u=s -type f 2>/dev/null``` to find exploit files to run without ```sudo```. SUID bits can be dangerous, some binaries such as passwd need to be run with elevated privileges (as its resetting your password on the system), however other custom files could that have the SUID bit can lead to all sorts of issues.
+
+3. you get find possible escalation scripts at [GTFObins](https://gtfobins.github.io/)
