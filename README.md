@@ -1,5 +1,13 @@
 # Common CTF References
 
+##THM box setup
+tryhackme virtual box do not have pip installed.
+```
+sudo apt install python3-pip
+```
+
+##IP setup
+
 note that in this script below, I made an assumption that you have assigned ```IP``` to the target's IP address:
 ```bash
 export IP=<ip address>
