@@ -110,6 +110,11 @@ if you know the database type
 sqlmap -u $IP --dbms==sqlite --dump
 ```
 
+## Netcat
+```
+nc -lvpn <port>
+```
+
 ## Stablising Shell
 - type the following:
 ```bash
