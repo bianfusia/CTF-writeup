@@ -1,6 +1,6 @@
 # Common CTF References
 
-##THM box setup
+## THM box setup
 tryhackme virtual box do not have pip installed.
 ```
 sudo apt install python3-pip
