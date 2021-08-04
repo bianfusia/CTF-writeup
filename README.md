@@ -159,3 +159,10 @@ export TERM=xterm
 2. you can use ```find / -perm -u=s -type f 2>/dev/null``` to find exploit files to run without ```sudo```. SUID bits can be dangerous, some binaries such as passwd need to be run with elevated privileges (as its resetting your password on the system), however other custom files could that have the SUID bit can lead to all sorts of issues.
 
 3. you get find possible escalation scripts at [GTFObins](https://gtfobins.github.io/)
+
+## Recommended Burpsuite Additional Module Copy As Python-Requests
+1. Go to ```Extender``` Tab
+2. Under ```BApp Store``` Tab
+3. Search for ```Copy As Python-Requests```
+4. This allows you to change the get or post requests into a python format when you right click on the ```intercept``` response and choose ```Copy As Python-Requests```
+5. Good for python scripting.
