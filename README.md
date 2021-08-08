@@ -83,6 +83,11 @@ telnet $IP [port]
 ## FTP
 [FTP pentest article](https://book.hacktricks.xyz/pentesting/pentesting-ftp)
 
+bruteforce works too:
+```
+hydra -t 4 -l <user> -P /usr/share/wordlists/rockyou.txt -vV 10.10.10.6 ftp
+```
+
 ## Hydra Brute-Forcing
 With known user and unknown password:
 ```bash
