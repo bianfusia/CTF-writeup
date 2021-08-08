@@ -21,7 +21,7 @@ export IP=<ip address>
 ## Nmap
 Normal full port scan:
 ```bash
-nmap -sC -sV -p- -oN fullscan $IP
+nmap -sC -sV -p- -oN <file directory> $IP
 ```
 
 Nmap scanning samba ports:
