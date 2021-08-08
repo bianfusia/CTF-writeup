@@ -88,6 +88,15 @@ bruteforce works too:
 hydra -t 4 -l <user> -P /usr/share/wordlists/rockyou.txt -vV 10.10.10.6 ftp
 ```
 
+Simple FTP syntax
+```
+lcd <set your download directory>
+get file
+put file
+mget *
+mget *.txt
+```
+
 ## Hydra Brute-Forcing
 With known user and unknown password:
 ```bash
