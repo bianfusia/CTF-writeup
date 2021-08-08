@@ -201,6 +201,7 @@ User gwendoline may run the following commands on year-of-the-rabbit:
 # you can run
 sudo -u#-1 /usr/bin/chmod
 ```
+- Follow GTFO to escalate the ```bin/sh```
 
 ## Recommended Burpsuite Additional Module Copy As Python-Requests
 1. Go to ```Extender``` Tab
