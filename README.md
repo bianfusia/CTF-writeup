@@ -80,6 +80,9 @@ Accessing Telnet:
 telnet $IP [port]
 ```
 
+## FTP
+[FTP pentest article](https://book.hacktricks.xyz/pentesting/pentesting-ftp)
+
 ## Hydra Brute-Forcing
 With known user and unknown password:
 ```bash
