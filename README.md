@@ -86,6 +86,10 @@ telnet $IP [port]
 bruteforce works too:
 ```
 hydra -t 4 -l <user> -P /usr/share/wordlists/rockyou.txt -vV 10.10.10.6 ftp
+
+OR
+
+root@kali:~/Downloads# ncrack --user "ftpuser" -P passwords.txt ftp://10.10.145.113
 ```
 
 Simple FTP syntax
