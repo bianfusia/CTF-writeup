@@ -11,6 +11,9 @@ install gobuster as well
 sudo apt-get install gobuster
 ```
 
+- Install webapplyzer
+- Setup Burpsuite and foxyproxy.
+
 ## IP setup
 
 note that in this script below, I made an assumption that you have assigned ```IP``` to the target's IP address:
