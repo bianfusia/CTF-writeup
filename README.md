@@ -13,10 +13,6 @@ sudo apt-get install gobuster
 
 - Install webapplyzer browser add on.
 - Setup Burpsuite and foxyproxy.
-- install assetfinder
-```
-go get -u github.com/tomnomnom/assetfinder
-```
 - download impacket
 ```
 git clone https://github.com/SecureAuthCorp/impacket.git
