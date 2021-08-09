@@ -1,6 +1,6 @@
 # Common CTF References
 
-## THM box setup
+## Kali box setup
 tryhackme virtual box do not have pip installed.
 ```
 sudo apt install python3-pip
@@ -11,8 +11,16 @@ install gobuster as well
 sudo apt-get install gobuster
 ```
 
-- Install webapplyzer
+- Install webapplyzer browser add on.
 - Setup Burpsuite and foxyproxy.
+- install assetfinder
+```
+go get -u github.com/tomnomnom/assetfinder
+```
+- download impacket
+```
+git clone https://github.com/SecureAuthCorp/impacket.git
+```
 
 ## IP setup
 
