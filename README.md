@@ -244,6 +244,8 @@ sudo -u#-1 /usr/bin/chmod
 ```
 - Follow GTFO to escalate the ```bin/sh```
 
+5. if all else fails, try linpeas.sh
+
 ## Recommended Burpsuite Additional Module Copy As Python-Requests
 1. Go to ```Extender``` Tab
 2. Under ```BApp Store``` Tab
