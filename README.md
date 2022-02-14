@@ -18,6 +18,19 @@ sudo apt-get install gobuster
 git clone https://github.com/SecureAuthCorp/impacket.git
 ```
 
+## OpenVPN Setup for THM
+1. Install OpenVPN
+
+```
+sudo apt install openvpn
+```
+
+2. Run Openvpn
+
+```
+sudo openvpn /path-to-file/file-name.ovpn
+```
+
 ## IP setup
 
 note that in this script below, I made an assumption that you have assigned ```IP``` to the target's IP address:
