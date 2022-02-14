@@ -81,6 +81,27 @@ With user and port add:
 -p [port] : to specify the port
 ```
 
+## SSH with id_rsa
+1. First you need to set the id_rsa permission first
+```
+chmod 600 id_rsa
+```
+
+2. Then try logging in with the id_rsa
+```
+ssh -i id_rsa <username>@<ipaddress>
+```
+
+3. If id_rsa is passcode protected you will need to run ```john``` to try decrypt the password (assuming weak passcode).
+```
+# make id_rsa readable to john format
+/usr/share/john/ssh2john.py id_rsa > id_rsa.john
+
+# bruteforce password with rockyou
+sudo john --wordlist=/usr/share/wordlists/rockyou.txt id_rsa.john
+```
+
+
 ## Telnet
 Accessing Telnet:
 ```bash
