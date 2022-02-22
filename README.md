@@ -196,6 +196,11 @@ if you know the database type
 ```bash
 sqlmap -u $IP --dbms==sqlite --dump
 ```
+## Making a Python HTTP Server
+
+```
+python -m SimpleHTTPServer <port>
+```
 
 ## Reverse Shell
 
