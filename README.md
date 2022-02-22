@@ -114,6 +114,11 @@ ssh -i id_rsa <username>@<ipaddress>
 sudo john --wordlist=/usr/share/wordlists/rockyou.txt id_rsa.john
 ```
 
+## Downloading/Uploading File Thru SSH
+
+```
+scp -i id_rsa <file_you_wanna_upload/download> <username>@<ipaddress>:<path/to/file-to-upload-or-download>
+```
 
 ## Telnet
 Accessing Telnet:
@@ -196,7 +201,7 @@ sqlmap -u $IP --dbms==sqlite --dump
 
 [Pentestmonkey's php reverse shell](https://github.com/pentestmonkey/php-reverse-shell)
 
--Remember to change the IP address and port in the php script
+- Remember to change the IP address and port in the php script
 
 - [Renaming reverse shell ext](https://d00mfist.gitbooks.io/ctf/content/bypass_image_upload.html)
 
