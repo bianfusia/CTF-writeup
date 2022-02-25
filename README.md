@@ -182,6 +182,11 @@ hydra -l admin -P /usr/share/wordlists/rockyou.txt -s 3000 -f $IP http-get /<add
 ```bash
 hashcat -D 1 -m 1800 hash.txt /usr/share/wordlists/rockyou.txt --force
 ```
+```bash
+hashcat -m <hash table from hashcat> -a 0 -o <output file> <hash file> <wordlist> --force
+#0 is dictionary attack
+```
+
 ## Sample John The Ripper Brute-Forcing
 ```bash
 john --wordlist=/usr/share/wordlists/rockyou.txt hash
