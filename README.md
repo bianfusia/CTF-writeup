@@ -54,6 +54,13 @@ Nmap scanning for vulnerability script:
 nmap $IP --script=/usr/share/nmap/scripts/vulners.nse -sV
 ```
 
+## Identifying hash
+```bash
+hash-identifier
+#after you load key in the hash value
+```
+
+
 ## Nikto
 ```bash
 nikto -h $IP
