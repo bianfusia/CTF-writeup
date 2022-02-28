@@ -199,6 +199,21 @@ hashcat -m <hash table from hashcat> -a 0 -o <output file> <hash file> <wordlist
 john --wordlist=/usr/share/wordlists/rockyou.txt hash
 ```
 
+## Decode Base Encoded Text
+
+Use Base Crack
+
+```
+$ git clone https://github.com/mufeedvh/basecrack.git
+$ cd basecrack
+$ pip install -r requirements.txt
+$ python basecrack.py -h
+```
+
+## Finding out Encryption Type
+
+Use ```hash-identifier``` preinstalled in kali.
+
 ## SQLmap
 ```bash
 sqlmap -u $IP
