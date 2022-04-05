@@ -229,6 +229,12 @@ sqlmap -u $IP --dbms==sqlite --dump
 python -m SimpleHTTPServer <port>
 ```
 
+OR
+
+```
+sudo python3 -m http.server <port>
+```
+
 ## Reverse Shell
 
 [Pentestmonkey's php reverse shell](https://github.com/pentestmonkey/php-reverse-shell)
@@ -288,6 +294,7 @@ export TERM=xterm
 - press ```crtl+l``` to get a clean and stable shell.
 
 - if anything went wrong. you can always cmd ```reset```.
+- you can type ```stty -a``` to see your own shell's rows and col then resize it ```stty rows <number>; stty cols <number>```
 
 ## Another 2 ways to stablise shell
 1. For Windows mainly but work well with Linux
