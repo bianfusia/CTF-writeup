@@ -287,6 +287,20 @@ export TERM=xterm
 
 - press ```crtl+l``` to get a clean and stable shell.
 
+- if anything went wrong. you can always cmd ```reset```.
+
+## Another 2 ways to stablise shell
+1. For Windows mainly but work well with Linux
+```
+sudo apt install rlwrap
+rlwrap nc -lvnp <port>
+
+# crtl z -> stty raw -echo; fg to stablise linux
+```
+
+2. Use ```socat``` for linux.
+
+
 ## Finding Exploit For Privilege Escalation
 
 1. You can type ```sudo -l``` to see if any sudo permission is given.
