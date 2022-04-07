@@ -306,6 +306,9 @@ rlwrap nc -lvnp <port>
 ```
 
 2. Use ```socat``` for linux.
+```
+socat TCP-L:<port> FILE:`tty`,raw,echo=0
+```
 
 
 ## Finding Exploit For Privilege Escalation
