@@ -38,6 +38,12 @@ note that in this script below, I made an assumption that you have assigned ```I
 export IP=<ip address>
 ```
 
+Assigning IP address to url
+
+```
+echo "<ip> team.thm" >> /etc/hosts
+```
+
 ## Nmap
 Normal full port scan:
 ```bash
