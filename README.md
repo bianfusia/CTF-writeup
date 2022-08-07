@@ -339,6 +339,9 @@ rlwrap nc -lvnp <port>
 socat TCP-L:<port> FILE:`tty`,raw,echo=0
 ```
 
+## Searchsploit
+
+the result of searchsploit starts from path ```/usr/share/exploitdb/exploits/```
 
 ## Finding Exploit For Privilege Escalation
 
