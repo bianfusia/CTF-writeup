@@ -323,6 +323,7 @@ export TERM=xterm
 - press ```crtl+l``` to get a clean and stable shell.
 
 - if anything went wrong. you can always cmd ```reset```.
+- then if will ask for terminal and you can try ```xterm``` or ```xterm-256color```.
 - you can type ```stty -a``` to see your own shell's rows and col then resize it ```stty rows <number>; stty cols <number>```
 
 ## Another 2 ways to stablise shell
