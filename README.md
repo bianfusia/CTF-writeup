@@ -350,6 +350,8 @@ the result of searchsploit starts from path ```/usr/share/exploitdb/exploits/```
 
 2. you can use ```find / -perm -u=s -type f 2>/dev/null``` to find exploit files to run without ```sudo```. SUID bits can be dangerous, some binaries such as passwd need to be run with elevated privileges (as its resetting your password on the system), however other custom files could that have the SUID bit can lead to all sorts of issues.
 
+- if SUID bits has setcap, read this [article](https://www.hackingarticles.in/linux-privilege-escalation-using-capabilities/) for privesc with python. Or go to GTFObin and find a capabilities that allows privesc and use the same technique.
+
 3. you get find possible escalation scripts at [GTFObins](https://gtfobins.github.io/)
 
 4. [CVE-2019-14287 user sudo -u#-1](https://www.whitesourcesoftware.com/resources/blog/new-vulnerability-in-sudo-cve-2019-14287/)
@@ -370,6 +372,7 @@ sudo -u#-1 /usr/bin/chmod
 - Follow GTFO to escalate the ```bin/sh```
 
 5. if all else fails, try linpeas.sh
+
 
 ## Recommended Burpsuite Additional Module Copy As Python-Requests
 1. Go to ```Extender``` Tab
