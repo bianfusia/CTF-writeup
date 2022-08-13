@@ -381,6 +381,8 @@ sudo -u#-1 /usr/bin/chmod
 
 5. if all else fails, try linpeas.sh
 
+6. If linpeas shows nothing... try searching for active database or database locations in the server.
+
 ## Additional method on privesc
 1. [page](https://wiki.thehacker.nz/docs/thm-writeups/road-medium/) - Escalate through pkexec when user has sudo in group.
 2. [page](https://classroom.anir0y.in/post/tryhackme-road/) - sudo -l shows ```LD_PRELOAD``` available.
