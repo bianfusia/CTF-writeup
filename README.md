@@ -44,7 +44,7 @@ Assigning IP address to url
 echo "<ip> team.thm" >> /etc/hosts
 ```
 
-## Nmap
+## Nmap ( 0 - 65535)
 Normal full port scan:
 ```bash
 nmap -sC -sV -p- -oN <file directory> $IP
