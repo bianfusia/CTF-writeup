@@ -356,7 +356,25 @@ the result of searchsploit starts from path ```/usr/share/exploitdb/exploits/```
 
 1. You can type ```sudo -l``` to see if any sudo permission is given.
 
-2. you can use ```find / -perm -u=s -type f 2>/dev/null``` to find exploit files to run without ```sudo```. SUID bits can be dangerous, some binaries such as passwd need to be run with elevated privileges (as its resetting your password on the system), however other custom files could that have the SUID bit can lead to all sorts of issues.
+2. you can use ```find / -perm -u=s -type f 2>/dev/null``` to find exploit files to run without ```sudo```. SUID bits can be dangerous, some binaries such as passwd need to be run with elevated privileges (as its resetting your password on the system), however other custom files could that have the SUID bit can lead to all sorts of issues. Below show a normal suid list
+```
+/usr/lib/openssh/ssh-keysign
+/usr/lib/policykit-1/polkit-agent-helper-1
+/usr/lib/eject/dmcrypt-get-device
+/usr/lib/dbus-1.0/dbus-daemon-launch-helper
+/usr/bin/pkexec
+/usr/bin/passwd
+/usr/bin/chsh
+/usr/bin/fusermount
+/usr/bin/sudo
+/usr/bin/newgrp
+/usr/bin/mount
+/usr/bin/gpasswd
+/usr/bin/umount
+/usr/bin/su
+/usr/bin/at
+/usr/bin/chfn
+```
 
 - if SUID bits has setcap, read this [article](https://www.hackingarticles.in/linux-privilege-escalation-using-capabilities/) for privesc with python. Or go to GTFObin and find a capabilities that allows privesc and use the same technique.
 
