@@ -83,6 +83,22 @@ Scanning with extensions example ```php``` and ```txt```:
 ```bash
 gobuster dir -u http://$IP -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -x .php,.txt
 ```
+## wfuzz
+subdomain
+```
+wfuzz -c --hw 977 -u http://team.thm -H "Host: FUZZ.team.thm" -w ~/Desktop/git/SecLists/Discovery/DNS/subdomains-top1mil
+lion-5000.txt
+```
+get request
+```
+wfuzz -w wordlist/general/common.txt http://testphp.vulnweb.com/FUZZ
+```
+
+basic auth (hide) --hs
+```
+wfuzz -c -w users.txt --hs "Login name" -d "name=FUZZ&password=FUZZ&autologin=1&enter=Sign+in" http://zipper.htb/zabbix/index.php
+```
+
 
 ## Samba
 Through Nmap:
