@@ -88,6 +88,10 @@ subdomain
 ```
 wfuzz -c --hw 977 -u http://team.thm -H "Host: FUZZ.team.thm" -w ~/Desktop/git/SecLists/Discovery/DNS/subdomains-top1mil
 lion-5000.txt
+
+# OR
+
+wfuzz --hw 977,53 -u http://team.thm -H "Host: FUZZ.team.thm" -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
 ```
 get request
 ```
