@@ -112,7 +112,7 @@ nmap -p 445 --script=smb-enum-shares.nse,smb-enum-users.nse $IP
 
 Through enum4linux:
 ```bash
-enum4linux -A $IP
+enum4linux -a $IP
 ```
 
 Accessing Samba:
