@@ -425,6 +425,7 @@ sudo -u#-1 /usr/bin/chmod
 1. [page](https://wiki.thehacker.nz/docs/thm-writeups/road-medium/) - Escalate through pkexec when user has sudo in group.
 2. [page](https://classroom.anir0y.in/post/tryhackme-road/) - sudo -l shows ```LD_PRELOAD``` available.
 3. [page](https://www.exploit-db.com/exploits/50689) - polkit escalation. vi evil-so.c, vi exploit.c, follow makefile cmd type out 1 by1 and run ./exploit
+4. change user ```sudo -u <username> <cmd/scripts>```
 
 ## Recommended Burpsuite Additional Module Copy As Python-Requests
 1. Go to ```Extender``` Tab
