@@ -83,6 +83,12 @@ Scanning with extensions example ```php``` and ```txt```:
 ```bash
 gobuster dir -u http://$IP -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -x .php,.txt
 ```
+
+## Feroxbuster
+```
+feroxbuster -u http://10.10.10.75/nibbleblog/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -q -x php,txt
+```
+
 ## wfuzz
 subdomain
 ```
