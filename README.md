@@ -220,9 +220,9 @@ PHP RCE
 
 ## Wordpress
 ```
-wpscan --url 10.10.10.88/webservices/wp --passwords /usr/share/wordlists/rockyou.txt
+wpscan --url http://10.10.10.88/webservices/wp --passwords /usr/share/wordlists/rockyou.txt
 
-wpscan --url 10.10.10.88/webservices/wp -e ap --log wplog.txt
+wpscan --url http://10.10.10.88/webservices/wp -e ap,at --log wplog.txt
 ```
 
 ## Simple LFI
