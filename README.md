@@ -89,6 +89,11 @@ gobuster dir -u http://$IP -w /usr/share/wordlists/dirbuster/directory-list-2.3-
 feroxbuster -u http://10.10.10.75/nibbleblog/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -q -x php,txt
 ```
 
+## Dirsearch
+```
+dirsearch -u http://10.10.10.123 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -e txt,php,html -r -o dirhttptry.txt -f
+```
+
 ## wfuzz
 subdomain
 ```
