@@ -222,7 +222,7 @@ PHP RCE
 ```
 wpscan --url http://10.10.10.88/webservices/wp --passwords /usr/share/wordlists/rockyou.txt
 
-wpscan --url http://10.10.10.88/webservices/wp -e p,t,u --log wplog.txt
+wpscan --url http://10.10.10.88/webservices/wp -e p,t,u -o wplog.txt
 ```
 
 ## Simple LFI
