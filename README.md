@@ -161,7 +161,9 @@ sudo john --wordlist=/usr/share/wordlists/rockyou.txt id_rsa.john
 ## Downloading/Uploading File Thru SSH
 
 ```
-scp -i id_rsa <file_you_wanna_upload/download> <username>@<ipaddress>:<path/to/file-to-upload-or-download>
+scp -i id_rsa <file_you_wanna_upload> <username>@<ipaddress>:<path/to/file-to-upload>
+
+scp user@server:/path/to/remotefile.zip /Local/Target/Destination
 ```
 
 ## Telnet
