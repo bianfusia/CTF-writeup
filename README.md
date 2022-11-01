@@ -420,10 +420,17 @@ the result of searchsploit starts from path ```/usr/share/exploitdb/exploits/```
 ## Port Forwarding
 SSH
 ``` bash
+#local port-forwarding
 ssh -p 2222 -N -L 80:0.0.0.0:80 student@192.168.209.52
 # the above will forward port 80 from 192.168.209.52 to our kali localhost 127.0.0.1
 # ssh -p <port> -N -L [<kalihost which ip you want it to be - default is 0.0.0.0>:]<kali port>:<victim local listening host>:<listening port> <user>@<victim ip>
 # N is no remote command, L is for forwarding
+
+#remote port forwarding
+ssh -p 2222 -N -R 192.168.209.52:5555:127.0.0.1:8133 student@192.168.209.52
+# can be done on your kali or on your victim server
+# above example is running on our own kali
+# ssh -N -R <local/victim ip>:<local/victim port>:<kali/local ip>:<kali/local ip> <user>@<ip>
 ```
 
 ## Finding Exploit For Privilege Escalation
