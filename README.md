@@ -417,6 +417,15 @@ socat TCP-L:<port> FILE:`tty`,raw,echo=0
 
 the result of searchsploit starts from path ```/usr/share/exploitdb/exploits/```
 
+## Port Forwarding
+SSH
+``` bash
+ssh -p 2222 -N -L 80:0.0.0.0:80 student@192.168.209.52
+# the above will forward port 80 from 192.168.209.52 to our kali localhost 127.0.0.1
+# ssh -p <port> -N -L [<kalihost which ip you want it to be - default is 0.0.0.0>:]<kali port>:<victim local listening host>:<listening port> <user>@<victim ip>
+# N is no remote command, L is for forwarding
+```
+
 ## Finding Exploit For Privilege Escalation
 
 1. You can type ```sudo -l``` to see if any sudo permission is given.
